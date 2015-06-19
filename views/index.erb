@@ -1,0 +1,37 @@
+<h1>Welcome to the Shoe and Shoe Store Page</h1>
+
+<h3>Here are your current stores:</h3>
+
+<% if @stores.any?() %>
+<% @stores.each() do |store| %>
+<ul>
+  <li><a href='/store/<%=store.id()%>'> <%=store.name()%></a></li>
+</ul>
+<%end%>
+<%else %>
+<p> You have no stores!</p>
+<%end%>
+
+<form action='/store_add/' method='post'>
+    <label for='name'/> Add a Shoe: </label>
+    <input id='name' name='name' type='text'>
+  <button type='submit' class='btn btn-info'>Add Store</button>
+</form>
+
+<h3>Here are all the Shoes:</h3>
+
+<% if @shoes.any?() %>
+<% @shoes.each() do |shoe| %>
+<ul>
+  <li><a href='/shoe/<%=shoe.id()%>'> <%=shoe.shoe_name()%></a></li>
+</ul>
+<%end%>
+<%else %>
+<p> You have no shoes!</p>
+<%end%>
+
+<form action='/shoe_add/' method='post'>
+  <label for='shoe_name'>Store Name</label>
+  <input id='shoe_name' name='shoe_name' type='text'>
+  <button type='submit' class='btn btn-info'>Add Shoe</button>
+</form>
