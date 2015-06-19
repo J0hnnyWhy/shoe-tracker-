@@ -25,3 +25,19 @@ post('/store_add/') do
   @stores = Store.all()
   erb(:index)
 end
+
+patch('/store/:id') do
+  date = params.fetch('update')
+  @store = Store.find(params.fetch('id'))
+  @store.update({:name => date})
+  @stores = Store.all()
+  erb(:store)
+end
+
+delete('/store/:id') do
+  @store = Store.find(params.fetch('id'))
+  @store.delete()
+  @stores = Store.all()
+  @shoes = Shoe.all()
+  erb(:index)
+end
