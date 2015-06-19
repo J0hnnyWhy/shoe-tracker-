@@ -10,7 +10,7 @@ describe(Store) do
 
     it("converts the name to capitolize") do
       store = Store.create({:name => "shoe store"})
-      expect(store.name()).to(eq("Shoe Store"))
+      expect(store.name()).to(eq("Shoe store"))
     end
 
 
