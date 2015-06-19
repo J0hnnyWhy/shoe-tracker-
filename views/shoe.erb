@@ -1,0 +1,22 @@
+<h1>Shoe: <%= @shoe.shoe_name %><h1>
+
+  <h3>Stores:</h3>
+
+  <% if @shoe.stores.any?() %>
+  <% @shoe.stores.each() do |store| %>
+  <ul>
+    <li><a href='/store/<%=store.id %>'><%= store.name() %></a></li>
+  </ul>
+  <%end%>
+  <%else%>
+  <p>They are at no stores at this time</p>
+  <%end%>
+  <p><a href="/">Back to Home Page</a></p>
+  <div>
+    <form action="/shoe/<%= @shoe.id() %>" method="post">
+      <label for="deleted">Remove this shoe: </label>
+      <input name="_method" type="hidden" value="delete" id="deleted">
+
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
