@@ -56,3 +56,11 @@ post('/shoe_add/') do
   @stores = Store.all()
   erb(:index)
 end
+
+delete('/shoe/:id') do
+  @shoe = Shoe.find(params.fetch('id'))
+  @shoe.delete()
+  @shoes = Shoe.all()
+  @stores = Store.all()
+  erb(:index)
+end
