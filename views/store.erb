@@ -1,0 +1,41 @@
+<h1>Store: <%= @store.name %><h1>
+
+<h3>Shoe:</h3>
+
+<% if @store.shoes.any?() %>
+<% @store.shoes.each() do |shoe| %>
+<ul>
+  <li><a href='/shoe/<%=shoe.id %>'><%= shoe.shoe_name() %></a></li>
+</ul>
+<%end%>
+<%else%>
+<p>There are no shoes scheduled at this time</p>
+<%end%>
+
+<h3>Add a Shoe to this Store:</h3>
+
+<form action='/store_shoe_add/' method='post'>
+  <input type='hidden' name='store_id'  value=<%= @store.id %>
+  <label for='shoe_add'>Add a Shoe to this Store:</label>
+  <input id='shoe_add' name='shoe_add' type='text'>
+  <button type='submit' class='btn btn-info'>Add</button>
+</form>
+
+
+<form action='/store/<%= @store.id() %>' method='post'>
+  <input type='hidden' name='_method'  value='patch'>
+  <label for='update'>Update this Store:</label>
+  <input id='update' name='update' type='text' placeholder="enter new name">
+  <button type='submit' class='btn btn-info'>Update</button>
+</form>
+
+<div>
+<form action="/store/<%= @store.id() %>" method="post">
+  <label for="deleted">Remove this store: </label>
+  <input name="_method" type="hidden" value="delete" id="deleted">
+
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+</div>
+
+<p><a href="/">Back to Home Page</a></p>
