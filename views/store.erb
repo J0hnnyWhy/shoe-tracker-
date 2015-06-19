@@ -16,25 +16,25 @@
 
 <form action='/store_shoe_add/' method='post'>
   <input type='hidden' name='store_id'  value=<%= @store.id %>
-  <label for='shoe_add'>Add a Shoe to this Store:</label>
-  <input id='shoe_add' name='shoe_add' type='text'>
+  <label for='shoe_add'></label>
+  <input id='shoe_add' name='shoe_add' placeholder="enter new shoe" type='text' required="true">
   <button type='submit' class='btn btn-info'>Add</button>
 </form>
 
 
 <form action='/store/<%= @store.id() %>' method='post'>
   <input type='hidden' name='_method'  value='patch'>
-  <label for='update'>Update this Store:</label>
-  <input id='update' name='update' type='text' placeholder="enter new name">
+  <label for='update'> </label>
+  <input id='update' name='update' type='text' placeholder="enter new store name" required="true">
   <button type='submit' class='btn btn-info'>Update</button>
 </form>
 
 <div>
 <form action="/store/<%= @store.id() %>" method="post">
-  <label for="deleted">Remove this store: </label>
+  <label for="deleted"></label>
   <input name="_method" type="hidden" value="delete" id="deleted">
 
-  <button type="submit" class="btn btn-danger">Delete</button>
+  <button type="submit" class="btn btn-danger">Delete Store</button>
 </form>
 </div>
 

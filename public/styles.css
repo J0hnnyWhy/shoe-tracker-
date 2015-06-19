@@ -1,0 +1,18 @@
+h1, h2, h3, h4 {
+  font-family: 'Poiret One', cursive;
+  color: magenta;
+}
+
+body {
+  background-image: url("img/shoes.jpg");
+  background-repeat: no-repeat center;
+  background-size: cover;
+}
+
+ul, li, a {
+  color: lightgrey;
+}
+
+p {
+  color: lightgrey;
+}
