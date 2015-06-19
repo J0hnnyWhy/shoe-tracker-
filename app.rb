@@ -42,6 +42,17 @@ delete('/store/:id') do
   erb(:index)
 end
 
+post('/store_shoe_add/') do
+  shoe_name = params.fetch('shoe_add')
+  new_shoe = Shoe.create({:shoe_name => shoe_name})
+  # shoe = Shoe.find_by({:shoe_name => new_shoe})
+  store_id = params.fetch('store_id')
+  store = Store.find(store_id)
+  store.shoes.push(new_shoe)
+  @store = store
+  erb(:store)
+end
+
 get('/shoe/:id') do
   @shoe = Shoe.find(params.fetch('id'))
   @stores = Store.all()
