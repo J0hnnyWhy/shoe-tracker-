@@ -3,9 +3,11 @@ John Young Program name: Shoe Tracker App
 Description: This app allows a user to add a shoe store or a shoe brand from the
 index page. The user can go to a specific shoe store and see the shoes at that
 store. The user can also delete or update the store from the specific store page.
-The user can also go to a specific shoe page and delete the shoe. 
+The user can also go to a specific shoe page and delete the shoe.
 
 Ruby Setup Gems used: Sinatra, Sinatra-contrib, rspec, capybara, pg,pry, sinatra-activerecord, and rake . Bundler must be installed.
+Clone the repo and bundle the Gemfile, then create and migrate the database. Then
+run Sinatra server.
 
 Copying/license: The MIT License (MIT)
 
