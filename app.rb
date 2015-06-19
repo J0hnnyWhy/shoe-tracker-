@@ -6,22 +6,22 @@ require('pry')
 Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file }
 
 get('/') do
-  @bands = Band.all()
-  @venues = Venue.all()
+  @stores = Store.all()
+  @shoes = Shoe.all()
   erb(:index)
 end
 
-get('/band/:id') do
-  @band = Band.find(params.fetch('id'))
-  @venues = Venue.all()
-  @bands = Band.all()
-  erb(:band)
+get('/store/:id') do
+  @store = Store.find(params.fetch('id'))
+  @shoes = Shoe.all()
+  @stores = Store.all()
+  erb(:store)
 end
 
-post('/band_add/') do
+post('/store_add/') do
   @name = params.fetch('name')
-  @band = Band.create({:name => @name})
-  @venues = Venue.all()
-  @bands = Band.all()
+  @store = Store.create({:name => @name})
+  @shoes = Shoe.all()
+  @stores = Store.all()
   erb(:index)
 end
